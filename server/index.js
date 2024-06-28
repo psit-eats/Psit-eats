@@ -7,12 +7,16 @@ const express = require('express')
 
 // custom requires
 const { apiHandler } = require('./handlers')
+const database = require('./utility/database-config')
 
 // constants
 const PORT = process.env.PORT || 3000
 const app = express()
 
+database()
+
 // middlewares
+app.use(express.json())
 app.use(cors())
 app.use(morgan('dev'))
 app.use(helmet())
