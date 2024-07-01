@@ -11,10 +11,10 @@ const [userType, setUserType] = useState('student');
 
 return (
     <div className="container bg-slate-500 flex flex-col items-center justify-center h-screen p-4">
-    <div className="header mb-6 text-center">
-      <div className="text-4xl font-bold text-white mb-2">Sign Up</div>
-      <div className="underline w-20 h-1 bg-white mx-auto"></div>
-    </div>
+      <div className="header mb-6 text-center">
+        <div className="text-4xl font-bold text-white mb-2">Sign Up</div>
+        <div className="underline w-20 h-1 bg-white mx-auto"></div>
+      </div>
     <div className="inputs w-full max-w-md">
       <div className="input flex items-center bg-white p-2 rounded mb-4 shadow-md">
         <select 
