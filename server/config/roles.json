@@ -1,0 +1,16 @@
+{
+    "roles": [
+        {
+            "name": "admin",
+            "permissions": []
+        },
+        {
+            "name": "manager",
+            "permissions": []
+        },
+        {
+            "name": "student",
+            "permissions": []
+        }
+    ]
+}

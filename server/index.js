@@ -6,7 +6,7 @@ const helmet = require('helmet')
 const express = require('express')
 
 // custom requires
-const { apiHandler } = require('./handlers')
+const { apiHandler, authHandler } = require('./handlers')
 const database = require('./utility/database-config')
 
 // constants
@@ -23,5 +23,6 @@ app.use(helmet())
 
 // routes
 app.use('/v1', apiHandler)
+app.use('/auth', authHandler)
 
 app.listen(PORT,()=>console.log(`Server listening on port ${PORT}...`))
