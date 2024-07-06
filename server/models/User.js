@@ -11,7 +11,7 @@ const schema = new mongoose.Schema({
         required: [true, 'A name is required']
     },
     userID: {
-        type: Number,
+        type: String,
         required: [true, 'A userID is required'],
         unique: true
     },

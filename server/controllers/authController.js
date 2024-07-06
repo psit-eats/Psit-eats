@@ -14,7 +14,7 @@ const controller = {
                 try{
                     const result = await User.createUser({name: name, userID: userID, role: role, password: hash})
                     if(result){
-                        res.status(201).json({ success: true, result })
+                        res.status(201).json({ success: true })
                     }else{
                         res.status(500).json({ success: false, error: err })
                     }
@@ -28,15 +28,15 @@ const controller = {
     },
     login: async(req, res) => {
         try{
-            const { userID, role} = req.body
-            const data = await User.findOne({userID})
-            if(data){
-                bcrypt.compare(password, data.password, (err, result) => {
+            const { userID, password } = req.body
+            const user = await User.findOne({userID: userID})
+            if(user){
+                bcrypt.compare(password, user.password, (err, result) => {
                     if(err){
                         console.log('error in validating user password in login controller')
                     }
                     if(result){
-                        const token = generateToken({userID, role})
+                        const token = generateToken({name: user.name, userID: userID, role: user.role})
                         res.status(200).json(token)
                     }else{
                         res.sendStatus(403)

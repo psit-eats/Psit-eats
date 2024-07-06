@@ -2,15 +2,15 @@
     "roles": [
         {
             "name": "admin",
-            "permissions": []
+            "permissions": ["read_canteen", "update_canteen", "create_canteen", "delete_canteen"]
         },
         {
             "name": "manager",
-            "permissions": []
+            "permissions": ["read_canteen", "update_canteen"]
         },
         {
             "name": "student",
-            "permissions": []
+            "permissions": ["read_canteen"]
         }
     ]
 }
