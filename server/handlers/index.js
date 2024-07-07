@@ -1,3 +1,4 @@
 module.exports = {
-    apiHandler: require('./apiHandler')
+    apiHandler: require('./apiHandler'),
+    authHandler: require('./authHandler')
 }

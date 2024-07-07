@@ -6,8 +6,9 @@ const helmet = require('helmet')
 const express = require('express')
 
 // custom requires
-const { apiHandler } = require('./handlers')
+const { apiHandler, authHandler } = require('./handlers')
 const database = require('./utility/database-config')
+const authorize = require('./middlewares/authVerification')
 
 // constants
 const PORT = process.env.PORT || 3000
@@ -22,6 +23,7 @@ app.use(morgan('dev'))
 app.use(helmet())
 
 // routes
-app.use('/v1', apiHandler)
+app.use('/v1', authorize, apiHandler)
+app.use('/auth', authHandler)
 
-app.listen(PORT,()=>console.log(`Server listening on port ${PORT}...`))
+app.listen(PORT, () => console.log(`Server listening on port ${PORT}...`))

@@ -1,0 +1,16 @@
+{
+    "roles": [
+        {
+            "name": "admin",
+            "permissions": ["read_canteen", "update_canteen", "create_canteen", "delete_canteen"]
+        },
+        {
+            "name": "manager",
+            "permissions": ["read_canteen", "update_canteen"]
+        },
+        {
+            "name": "student",
+            "permissions": ["read_canteen"]
+        }
+    ]
+}
