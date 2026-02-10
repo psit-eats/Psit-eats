@@ -1,41 +1,42 @@
 import React from "react";
 import { LOGO_URL } from "../utils/constants";
-import { useState } from "react";
 import { Link } from "react-router-dom";
 
-
-const Header=()=>{
-    return(
-        <div className="header flex justify-between bg-opacity-75 bg-amber-800 shadow-lg">
-            <div className="logo-container w-[80px] h-[80px] overflow-hidden rounded-full flex justify-center">
-                <img className="logo max-w-full max-h-full object-cover" src= {LOGO_URL}/>
-            </div>
-            <div className="nav-items flex justify-end items-center">
-                <ul className="list-none flex justify-between m-0 p-0 text-white">
-                    
-                    <li className="font-Arvo p-[10px] text-[18px]">
-                      <Link to="/">Home</Link> 
-                    </li>
-                    <li className="font-Arvo p-[10px] text-[18px]">
-                      <Link to="/about">About Us</Link> 
-                    </li>
-                    <li className="font-Arvo p-[10px] text-[18px]">
-                      <Link to="/contact">Contact Us</Link> 
-                    </li>
-                    <li className="font-Arvo p-[10px] text-[18px]">
-                      <Link to="/cart">Cart</Link> 
-                    </li> 
-                    <li className="font-Arvo p-[10px] text-[18px]">
-                    <Link to="/login">LogIn</Link> 
-                    </li>
-                    <li className="font-Arvo p-[10px] text-[18px]">
-                    <Link to="/signup">SignUp</Link> 
-                    </li>
-                </ul>
-
-            </div>
+const Header = ({ cartCount }) => {
+  return (
+    <header className="header flex items-center justify-between bg-amber-800 px-4 py-2 shadow-lg">
+      <div className="logo-container flex items-center gap-3">
+        <img className="h-14 w-14 rounded-full object-cover" src={LOGO_URL} alt="CampusCrave logo" />
+        <div>
+          <p className="text-xs text-amber-100">PSIT</p>
+          <p className="text-xl font-semibold text-white">CampusCrave</p>
         </div>
-    );
+      </div>
+
+      <nav className="nav-items">
+        <ul className="flex items-center gap-4 text-sm text-white md:text-base">
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact</Link>
+          </li>
+          <li>
+            <Link to="/cart">Cart ({cartCount})</Link>
+          </li>
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
+          <li>
+            <Link to="/signup">Sign up</Link>
+          </li>
+        </ul>
+      </nav>
+    </header>
+  );
 };
 
 export default Header;
